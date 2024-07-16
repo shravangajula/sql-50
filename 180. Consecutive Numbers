@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+select distinct c1.Num as consecutivenums
+from Logs c1, Logs c2, Logs c3
+where c1.Num = c2.Num and c2.Num = c3.Num
+and c1.id = c2.id - 1 
+and c1.id = c3.id - 2
