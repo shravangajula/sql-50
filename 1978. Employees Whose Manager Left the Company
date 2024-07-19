@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select employee_id from employees a
+where salary < 30000 and manager_id is not null
+and not exists (select 1 from employees b where b.employee_id = a.manager_id)
+order by employee_id
