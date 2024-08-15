@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+select round(sum(tiv_2016),2) as tiv_2016
+from(select tiv_2016, count(*) over(partition by tiv_2015) as cnt_of_same_tiv2015,
+count(*) over(partition by lat, lon) as cnt_of_this_city
+from insurance) as subquery
+where cnt_of_same_tiv2015 > 1 and cnt_of_this_city = 1
